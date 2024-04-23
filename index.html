@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social Media Feed</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+      integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
+      crossorigin="anonymous"
+    ></script>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    
+  </head>
+
+  <body>
+    <section class="post_section">
+      <div class="container">
+        <div class="post_block">
+          <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+              <div class="profile_sec">
+                <div class="profile_name">
+                  <img
+                    src="profile-pic.jpg"
+                    alt="Profile Image"
+                    
+                  /><span class="emp_name">Amrita</span>
+                </div>
+                <div class="post_img">
+                  <p>Have We Met? I am Amrita. Today is my birthday!</p>
+                  <img src="birthday-image.jpg" alt="Post Image" width="100%" />
+                </div>
+                <div class="like_btn"><button id="btn"><i class="fa fa-thumbs-up"></i></button>
+                <span id="display">0</span> likes
+                 <div class="text-right">4 Comments</div>
+              </div>
+              </div>
+
+               
+                <div class="coment-area" style="display: block;">
+                  <ul class="we-comet">
+                  <li>
+                  <div class="comet-avatar">
+                  <img src="profile-pic.jpg" alt="">
+                  </div>
+                  <div class="we-comment">
+                  <h5><a href="time-line.html" title="">Jason borne</a></h5>
+                  <p>we are working for the dance and sing songs. this video is very awesome for the youngster. please vote this video and like our channel</p>
+                  
+                  </div>
+                  </li>
+                  <li>
+                  <div class="comet-avatar">
+                  <img src="profile-pic.jpg" alt="">
+                  </div>
+                  <div class="we-comment">
+                  <h5><a href="time-line.html" title="">Sophia</a></h5>
+                  <p>we are working for the dance and sing songs. this video is very awesome for the youngster.
+                  <i class="em em-smiley"></i>
+                  </p>
+                 
+                  </div>
+                  </li>
+                 
+                      <div id="comment-box">
+                      </div>
+                    
+                <li class="post-comment">
+                  <div class="comet-avatar">
+                    <img src="profile-pic.jpg" alt="">
+                    </div>
+                  <!-- <h2>Leave us a comment</h2> -->
+                   <div class="post-comt-box">
+                    <form>
+                     <textarea id="" placeholder="Add Your Comment" value=" "></textarea>
+                     <div class="btn_c">
+                         <input id="submit" class="btn btn-primary btn-sm" type="submit" value="Comment">
+                         <!-- <button id="clear">  
+                          &#128591;</button> -->
+                     </div> 
+                    </form>
+                    </div>
+                   <div class="comments">
+                 
+                   </div>
+  
+                  
+                </li>
+                  </ul>
+                  
+                  <div id="dataDisplay">
+                    <!-- JSON data will be displayed here -->
+                </div>
+
+
+              
+              
+             
+
+            </div>
+            <div id="employee-data"></div>
+            <div class="col-md-3"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      
+
+let count = 0;
+let btn = document.getElementById("btn");
+let disp = document.getElementById("display");
+
+btn.onclick = function () {
+  count++;
+  disp.innerHTML = count;
+};
+
+const field = document.querySelector("textarea");
+const backUp = field.getAttribute("placeholder");
+const btn_c = document.querySelector(".btn_c");
+// const clear = document.getElementById('clear')
+const submit = document.querySelector("#submit");
+// const comments = document.querySelector('#comment-box')
+const comments = document.getElementById("comment-box");
+
+// array to store the comments
+const comments_arr = [];
+
+// to generate html list based on comments array
+const display_comments = () => {
+  let list = "<ul>";
+  comments_arr.forEach((comment) => {
+    list += `
+    <li>
+                <div class="comet-avatar">
+                <img src="profile-pic.jpg" alt="">
+                </div>
+                <div class="we-comment">
+                <h5><a href="time-line.html" title="">Sophia</a></h5>
+                <p>${comment}
+                <i class="em em-smiley"></i>
+                </p>
+               
+                </div>
+                </li>`;
+  });
+  list += "</ul>";
+  comments.innerHTML = list;
+};
+
+// clear.onclick = function(event){
+//   event.preventDefault();
+//   // reset the array
+//    comments_arr.length = 0;
+//   // re-genrate the comment html list
+//   display_comments();
+// }
+
+submit.onclick = function (event) {
+  event.preventDefault();
+  const content = field.value;
+  if (content.length > 0) {
+    // if there is content
+    // add the comment to the array
+    comments_arr.push(content);
+    // re-genrate the comment html list
+    display_comments();
+    // reset the textArea content
+    field.value = "";
+  }
+};
+
+document.addEventListener("DOMContentLoaded", function () {
+  fetch("data.json")
+    .then((response) => response.json())
+    .then((data) => {
+      //const dataDisplay = document.getElementById("dataDisplay");
+
+      // Create HTML elements to display the JSON data
+      // const nameElement = document.createElement("p");
+      // nameElement.textContent = "Name: " + data.name;
+
+      // const ageElement = document.createElement("p");
+      // ageElement.textContent = "post: " + data.age;
+
+      // const cityElement = document.createElement("p");
+      // cityElement.textContent = "likedby: " + data.city;
+      console.log(data.length);
+	  for (let i = 0; i < data.length; i++) { 
+	  
+	  var listdata='';
+	  
+	  listdata+='<div class="profile_sec"><div class="profile_name"><img src="'+data[i].image+'" alt="pic Image"/><span class="emp_name">'+data[i].name+'</span></div><div class="post_img"><p>'+data[i].post+'</p> <img src="'+data[i].image+'" alt="Post Image" width="100%" /> </div> <div class="like_btn"><button onclick="like('+i+')" id="btn'+i+'"><i class="fa fa-thumbs-up"></i></button> <span id="display'+i+'">'+data[i].likes+'</span> likes '+data[i].likedby+' <div class="text-right">'+data[i].comments.length+' Comments</div> </div> </div> <div class="coment-area" style="display: block;"> <ul class="we-comet">';
+	  
+	  for (let j = 0; j < data[i].comments.length; j++) { 
+	  listdata+=' <li> <div class="comet-avatar"> <img src="profile-pic.jpg" alt=""> </div> <div class="we-comment"> <h5><a href="time-line.html" title="">'+data[i].comments[j].commentedby+'</a></h5> <p>'+data[i].comments[j].comment+'</p> </div> </li>';
+	  }
+	  listdata+=' <ul><div id="comment-box'+i+'"></div></ul>  <li class="post-comment"> <div class="comet-avatar"> <img src="profile-pic.jpg" alt=""> </div> <!-- <h2>Leave us a comment</h2> --> <div class="post-comt-box"> <form> <textarea id="comm'+i+'" placeholder="Add Your Comment" value=" "></textarea> <div class="btn_c"> <input onclick="submitcomm('+i+')" class="btn btn-primary btn-sm" value="Comment"> </div> </form> </div> <div class="comments"> </div> </li> </ul> </div>'
+      $("#employee-data").append(listdata);
+	 
+	  }
+
+      // Append the elements to the "dataDisplay" div
+      // dataDisplay.appendChild(nameElement);
+      // dataDisplay.appendChild(ageElement);
+      // dataDisplay.appendChild(cityElement);
+    })
+    .catch((error) => console.error("Error fetching JSON data:", error));
+});
+ 
+ function like(id){
+   var count=$('#display'+id).html();
+   count++;
+   $('#display'+id).html(count);
+ }
+ 
+ function submitcomm(id){
+   var comm=$('#comm'+id).val();
+   
+   if(comm!=''){
+   	 $('#comment-box'+id).append('<li><div class="comet-avatar"><img src="profile-pic.jpg" alt=""></div><div class="we-comment"><h5><a href="time-line.html" title="">Sophia</a></h5><p>'+comm+'<i class="em em-smiley"></i></p></div></li>');
+	 
+	 $('#comm'+id).val('');
+   }
+ }
+    </script>
+  </body>
+</html>

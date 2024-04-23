@@ -1,0 +1,56 @@
+[
+    {
+        "image": "profile-pic.jpg",
+        "name": "Amrita", 
+        "post": "Have We Met? I am Amrita. Today is my birthday!",
+        "likes": 4,
+        "likedby": "Raja,Hari,Geetha,John",
+        "comments": [
+   { "comment" : "Happy Birthday!", "commentedby" : "Raja"},
+   { "comment" : "Wishing you a year ahead filled with happiness and success! Day to shine! Cheers to another year!","commentedby" : "Hari"},
+   { "comment" : "Happy Birthday! Have a great year ahead" , "commentedby" : "Geetha"}           
+        ]
+    },
+	 {
+        "image": "birthday-image.jpg",
+        "name": "Rani", 
+        "post": "Have We Met? I am Rani. Today is my birthday!",
+        "likes": 12,
+        "likedby": "Raja,Hari,Geetha,John",
+        "comments": [
+   { "comment" : "Happy Birthday!", "commentedby" : "Raja"},
+   { "comment" : "Wishing you a year ahead filled with happiness and success! Day to shine! Cheers to another year!","commentedby" : "Hari"},
+   { "comment" : "Happy Birthday! Have a great year ahead" , "commentedby" : "Geetha"}, 
+   { "comment" : "Happy Birthday! Have a great year ahead" , "commentedby" : "Geetha"},
+   { "comment" : "Happy Birthday! Have a great year ahead" , "commentedby" : "Geetha"},
+   { "comment" : "Happy Birthday! Have a great year ahead" , "commentedby" : "Geetha"},
+   { "comment" : "Happy Birthday! Have a great year ahead" , "commentedby" : "Geetha"}          
+        ]
+    },
+	 {
+        "image": "birthday-image.jpg",
+        "name": "Amrita", 
+        "post": "Have We Met? I am Amrita. Today is my birthday!",
+        "likes": 4,
+        "likedby": "Raja,Hari,Geetha,John",
+        "comments": [
+   { "comment" : "Happy Birthday!", "commentedby" : "Raja"},
+   { "comment" : "Wishing you a year ahead filled with happiness and success! Day to shine! Cheers to another year!","commentedby" : "Hari"},
+   { "comment" : "Happy Birthday! Have a great year ahead" , "commentedby" : "Geetha"}           
+        ]
+    },
+	 {
+        "image": "birthday-image.jpg",
+        "name": "Amrita", 
+        "post": "Have We Met? I am Amrita. Today is my birthday!",
+        "likes": 4,
+        "likedby": "Raja,Hari,Geetha,John",
+        "comments": [
+   { "comment" : "Happy Birthday!", "commentedby" : "Raja"},
+   { "comment" : "Wishing you a year ahead filled with happiness and success! Day to shine! Cheers to another year!","commentedby" : "Hari"},
+   { "comment" : "Happy Birthday! Have a great year ahead" , "commentedby" : "Geetha"}           
+        ]
+    }
+
+    
+]
